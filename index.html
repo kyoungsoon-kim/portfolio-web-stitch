@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Kyoungsoon Kim - SCM & Logistics Optimization AI Engineer</title>
+    <meta
+      name="description"
+      content="SCM·물류 최적화 AI 엔지니어 김경순의 포트폴리오. 강화학습과 시뮬레이션으로 조달, 재고, 적재 의사결정을 자동화합니다."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Kyoungsoon Kim - SCM & Logistics Optimization AI Engineer" />
+    <meta
+      property="og:description"
+      content="강화학습과 시뮬레이션으로 공급망 의사결정을 자동화하는 AI 엔지니어 포트폴리오."
+    />
+    <meta property="og:url" content="https://kyoungsoon-kim-portfolio.vercel.app/" />
+    <script>
+      // Set the theme class before first paint so the page never flashes the wrong mode.
+      (() => {
+        const stored = localStorage.getItem('portfolio-theme')
+        const dark =
+          stored === 'dark' ||
+          (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)
+        document.documentElement.classList.toggle('dark', dark)
+        document.documentElement.style.colorScheme = dark ? 'dark' : 'light'
+      })()
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

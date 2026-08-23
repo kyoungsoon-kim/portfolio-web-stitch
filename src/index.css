@@ -1,0 +1,123 @@
+@import 'pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css';
+@import '@fontsource/jetbrains-mono/latin-400.css';
+@import '@fontsource/jetbrains-mono/latin-500.css';
+@import 'tailwindcss';
+
+/*
+  Design system - Kyoungsoon Kim portfolio
+  - Accent: emerald, one accent for the entire page, no secondary hues.
+    The accent swaps per theme so every use passes WCAG AA: emerald-700 on light
+    (5.25:1 against the surface, and against white button text), emerald-400 on dark (10:1).
+    Emerald-500 (#10B981) with white text is only 2.43:1, so it is never used for text or buttons.
+  - Neutrals: cool slate family. Off-black #0B0F14, off-white #FAFAFA. No pure #000 / #fff.
+  - Radius rule: buttons = pill, cards/panels = 16px, chips/badges = 8px.
+  - Type: Pretendard Variable (display + body), JetBrains Mono (metrics only).
+*/
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --accent: #047857;
+  --accent-hover: #065f46;
+  --accent-on: #fafafa;
+  --accent-wash: #ecfdf5;
+  --accent-line: #6ee7b7;
+}
+
+.dark {
+  --accent: #34d399;
+  --accent-hover: #6ee7b7;
+  --accent-on: #0b0f14;
+  --accent-wash: #06251c;
+  --accent-line: #10b981;
+}
+
+@theme {
+  --font-sans: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui,
+    sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-on: var(--accent-on);
+  --color-accent-wash: var(--accent-wash);
+  --color-accent-line: var(--accent-line);
+
+  --color-ink: #0b0f14;
+  --color-ink-muted: #475569;
+  --color-ink-faint: #94a3b8;
+  --color-surface: #fafafa;
+  --color-surface-raised: #ffffff;
+  --color-hairline: #e2e8f0;
+
+  --color-ink-dark: #f1f5f9;
+  --color-ink-muted-dark: #94a3b8;
+  --color-ink-faint-dark: #64748b;
+  --color-surface-dark: #0b0f14;
+  --color-surface-raised-dark: #131a22;
+  --color-hairline-dark: #1f2a36;
+
+  --radius-card: 1rem;
+  --radius-chip: 0.5rem;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* sticky nav is 64px tall; keep anchor targets clear of it */
+    scroll-padding-top: 5rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    background-color: var(--color-surface);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    letter-spacing: -0.011em;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .dark body {
+    background-color: var(--color-surface-dark);
+    color: var(--color-ink-dark);
+  }
+
+  h1,
+  h2,
+  h3 {
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: var(--accent-on);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* Cards sit on the raised surface with a hairline, never a drop shadow on the light theme. */
+  .surface-card {
+    background-color: var(--color-surface-raised);
+    border: 1px solid var(--color-hairline);
+    border-radius: var(--radius-card);
+  }
+
+  .dark .surface-card {
+    background-color: var(--color-surface-raised-dark);
+    border-color: var(--color-hairline-dark);
+  }
+}
