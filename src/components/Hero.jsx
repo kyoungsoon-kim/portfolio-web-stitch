@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from 'motion/react'
-import { ArrowUpRight, DownloadSimple } from '@phosphor-icons/react'
+import { ArrowUpRight, GithubLogo } from '@phosphor-icons/react'
 import { headlineMetrics, profile } from '../data/portfolio'
 
 const Hero = () => {
@@ -17,25 +17,25 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative flex min-h-[100dvh] items-center px-5 pt-24 pb-16 sm:px-8"
+      className="relative flex min-h-[100dvh] items-center px-5 pt-24 pb-14 sm:px-8"
     >
       <motion.div
         variants={container}
         initial="hidden"
         animate="show"
-        className="mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-12 lg:gap-16"
+        className="mx-auto grid w-full max-w-6xl items-center gap-10 lg:grid-cols-12 lg:gap-14"
       >
         <div className="lg:col-span-7">
           <motion.p
             variants={item}
-            className="mb-5 text-xs font-medium uppercase tracking-[0.18em] text-ink-faint dark:text-ink-faint-dark"
+            className="mb-5 text-xs font-medium uppercase tracking-[0.18em] text-accent"
           >
-            {profile.name}
+            SCM &amp; Logistics Optimization AI Engineer
           </motion.p>
 
           <motion.h1
             variants={item}
-            className="text-4xl font-semibold leading-[1.15] text-ink md:text-5xl lg:text-6xl dark:text-ink-dark"
+            className="text-4xl font-semibold leading-[1.12] text-ink md:text-5xl lg:text-6xl dark:text-ink-dark"
           >
             현장의 휴리스틱을
             <br />
@@ -52,47 +52,49 @@ const Hero = () => {
 
           <motion.div variants={item} className="mt-9 flex flex-wrap items-center gap-3">
             <a
-              href={profile.cv}
-              download
-              className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-on transition-[transform,background-color] hover:bg-accent-hover active:translate-y-px"
-            >
-              <DownloadSimple size={18} weight="bold" />
-              {profile.ctaLabel}
-            </a>
-            <a
               href={profile.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-hairline bg-surface-raised px-6 py-3 text-sm font-semibold text-ink transition-colors hover:border-accent hover:text-accent active:translate-y-px dark:border-hairline-dark dark:bg-surface-raised-dark dark:text-ink-dark"
+              className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-on transition-[transform,background-color] hover:bg-accent-hover active:translate-y-px"
             >
+              <GithubLogo size={18} weight="bold" />
               GitHub
               <ArrowUpRight size={16} weight="bold" />
             </a>
           </motion.div>
         </div>
 
-        {/* TODO: 실사진 확보 시 이 패널 옆/위에 인물 또는 프로젝트 결과 이미지 배치 (1200x900) */}
         <motion.div variants={item} className="lg:col-span-5">
-          <dl className="surface-card divide-y divide-hairline overflow-hidden dark:divide-hairline-dark">
+          <div className="surface-card overflow-hidden">
+            <div className="aspect-[4/3] overflow-hidden">
+              <img
+                src="/supply-chain-hero.webp"
+                alt="자동 운반 로봇이 이동하는 현대식 물류 센터"
+                width="1536"
+                height="1024"
+                fetchPriority="high"
+                className="h-full w-full object-cover transition-transform duration-700 ease-out hover:scale-[1.025] motion-reduce:transition-none"
+              />
+            </div>
+            <dl className="grid grid-cols-3 border-t border-hairline dark:border-hairline-dark">
             {headlineMetrics.map((metric) => (
-              <div key={metric.label} className="flex items-baseline gap-5 px-6 py-6">
-                <dt className="flex-1">
-                  <span className="block text-sm font-medium text-ink dark:text-ink-dark">
-                    {metric.label}
-                  </span>
-                  <span className="mt-1 block text-xs text-ink-faint dark:text-ink-faint-dark">
-                    {metric.context}
-                  </span>
-                </dt>
-                <dd className="shrink-0 font-mono text-2xl font-medium tabular-nums text-accent md:text-[1.75rem]">
+              <div
+                key={metric.label}
+                className="border-r border-hairline px-3 py-4 last:border-r-0 dark:border-hairline-dark sm:px-4"
+              >
+                <dd className="font-mono text-lg font-medium tabular-nums text-accent sm:text-xl">
                   {metric.value}
-                  <span className="ml-0.5 text-sm text-ink-faint dark:text-ink-faint-dark">
+                  <span className="ml-0.5 text-[0.65rem] text-ink-faint dark:text-ink-faint-dark">
                     {metric.unit}
                   </span>
                 </dd>
+                <dt className="mt-1 text-[0.7rem] leading-snug text-ink-muted dark:text-ink-muted-dark">
+                  {metric.label}
+                </dt>
               </div>
             ))}
-          </dl>
+            </dl>
+          </div>
         </motion.div>
       </motion.div>
     </section>

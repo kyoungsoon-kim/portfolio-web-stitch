@@ -82,6 +82,8 @@
     font-family: var(--font-sans);
     line-height: 1.6;
     letter-spacing: -0.011em;
+    word-break: keep-all;
+    overflow-wrap: break-word;
     -webkit-font-smoothing: antialiased;
   }
 

@@ -14,27 +14,33 @@ const About = () => {
   return (
     <section id="about" className="scroll-mt-24 px-5 py-24 sm:px-8 md:py-32">
       <div className="mx-auto max-w-6xl">
-        <motion.h2
-          {...reveal}
-          className="max-w-[18ch] text-3xl font-semibold leading-[1.25] text-ink md:text-4xl lg:text-5xl dark:text-ink-dark"
-        >
-          {about.lead}
-        </motion.h2>
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+          <motion.h2
+            {...reveal}
+            className="max-w-[18ch] text-3xl font-semibold leading-[1.25] text-ink md:text-4xl lg:col-span-5 lg:text-5xl dark:text-ink-dark"
+          >
+            {about.lead}
+          </motion.h2>
 
-        <motion.div
-          {...reveal}
-          transition={{ ...reveal.transition, delay: reduce ? 0 : 0.1 }}
-          className="mt-12 grid gap-x-14 gap-y-6 md:grid-cols-2"
-        >
-          {about.paragraphs.map((paragraph) => (
-            <p
-              key={paragraph.slice(0, 12)}
-              className="max-w-[62ch] text-[0.95rem] leading-[1.85] text-ink-muted dark:text-ink-muted-dark"
-            >
-              {paragraph}
-            </p>
-          ))}
-        </motion.div>
+          <motion.div
+            {...reveal}
+            transition={{ ...reveal.transition, delay: reduce ? 0 : 0.1 }}
+            className="flex flex-col gap-6 lg:col-span-7 lg:pt-2"
+          >
+            {about.paragraphs.map((paragraph, index) => (
+              <p
+                key={paragraph.slice(0, 12)}
+                className={`max-w-[62ch] leading-[1.85] ${
+                  index === 0
+                    ? 'text-lg font-medium text-ink dark:text-ink-dark'
+                    : 'text-[0.95rem] text-ink-muted dark:text-ink-muted-dark'
+                }`}
+              >
+                {paragraph}
+              </p>
+            ))}
+          </motion.div>
+        </div>
 
         <motion.dl
           {...reveal}

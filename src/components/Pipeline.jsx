@@ -50,6 +50,16 @@ const Pipeline = () => {
                   {entry.body}
                 </p>
                 <p className="mt-3 text-sm text-ink-faint dark:text-ink-faint-dark">{entry.note}</p>
+                {entry.image && (
+                  <img
+                    src={entry.image}
+                    alt={entry.imageAlt}
+                    width="1536"
+                    height="1024"
+                    loading="lazy"
+                    className="mt-6 aspect-[16/9] w-full rounded-card object-cover"
+                  />
+                )}
                 {entry.repo && (
                   <a
                     href={entry.repo}

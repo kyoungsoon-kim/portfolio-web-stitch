@@ -8,8 +8,6 @@ export const profile = {
   role: 'SCM & Logistics Optimization AI Engineer',
   email: 'rudtns6443@gmail.com',
   github: 'https://github.com/kyoungsoon-kim',
-  cv: '/portfolio_kyoungsoon.pdf',
-  ctaLabel: 'Download CV',
 }
 
 // Hero right column. Real results, each traceable to a project below.
@@ -43,6 +41,8 @@ export const pipeline = [
     metric: { value: '0.9956', label: 'F1-Score' },
     body: 'Autoencoder 기반 이상 탐지에 SHAP을 붙여 판정 근거까지 드러냈습니다. 배경 데이터 사전 캐싱으로 XAI 연산을 줄여 실시간 시연이 가능한 수준으로 만들었습니다.',
     note: '데이터분석 경진대회 1위 금상. 기존 가이드 0.7956 대비 향상.',
+    image: '/battery-inspection.webp',
+    imageAlt: '자동 검사 장비가 전기차 배터리 모듈을 검사하는 생산 라인',
     repo: 'https://github.com/kyoungsoon-kim/battery-anomaly-detection-xai',
   },
   {
@@ -112,6 +112,8 @@ export const projects = [
     impact: '데이터 입력 시간을 90% 이상 줄이고 ERP 연동을 자동화했습니다.',
     repo: 'https://github.com/kyoungsoon-kim/donut-document-ai',
     featured: true,
+    image: '/document-ai.webp',
+    imageAlt: '문서 카메라가 업무 서류를 촬영하는 자동화된 사무 환경',
   },
   {
     id: 'hanwoo',

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { AnimatePresence, motion, useMotionValueEvent, useReducedMotion, useScroll } from 'motion/react'
-import { DownloadSimple, List, Moon, Sun, X } from '@phosphor-icons/react'
+import { List, Moon, Sun, X } from '@phosphor-icons/react'
 import { navItems, profile } from '../data/portfolio'
 import { useActiveSection } from '../hooks/useActiveSection'
 
@@ -74,15 +74,6 @@ const Navbar = ({ theme, onToggleTheme }) => {
             {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
           </button>
 
-          <a
-            href={profile.cv}
-            download
-            className="hidden items-center gap-2 rounded-full bg-accent px-4 py-2 text-sm font-semibold text-accent-on transition-[transform,background-color] hover:bg-accent-hover active:translate-y-px sm:inline-flex"
-          >
-            <DownloadSimple size={16} weight="bold" />
-            {profile.ctaLabel}
-          </a>
-
           <button
             type="button"
             onClick={() => setMenuOpen((open) => !open)}
@@ -117,15 +108,6 @@ const Navbar = ({ theme, onToggleTheme }) => {
                 </li>
               ))}
             </ul>
-            <a
-              href={profile.cv}
-              download
-              onClick={() => setMenuOpen(false)}
-              className="mt-4 flex items-center justify-center gap-2 rounded-full bg-accent px-4 py-3 text-sm font-semibold text-accent-on sm:hidden"
-            >
-              <DownloadSimple size={16} weight="bold" />
-              {profile.ctaLabel}
-            </a>
           </motion.div>
         )}
       </AnimatePresence>

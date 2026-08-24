@@ -21,9 +21,7 @@
       // Set the theme class before first paint so the page never flashes the wrong mode.
       (() => {
         const stored = localStorage.getItem('portfolio-theme')
-        const dark =
-          stored === 'dark' ||
-          (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)
+        const dark = stored === 'dark'
         document.documentElement.classList.toggle('dark', dark)
         document.documentElement.style.colorScheme = dark ? 'dark' : 'light'
       })()

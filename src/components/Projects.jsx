@@ -44,7 +44,7 @@ const Projects = () => {
                   type="button"
                   onClick={() => setActiveCategory(category)}
                   aria-pressed={isActive}
-                  className={`relative rounded-full border px-4 py-2 text-sm font-medium transition-colors active:scale-[0.98] ${
+                  className={`relative isolate overflow-hidden rounded-full border px-4 py-2 text-sm font-medium transition-colors active:scale-[0.98] ${
                     isActive
                       ? 'border-accent text-accent-on'
                       : 'border-hairline text-ink-muted hover:text-ink dark:border-hairline-dark dark:text-ink-muted-dark dark:hover:text-ink-dark'
@@ -56,20 +56,17 @@ const Projects = () => {
                       transition={
                         reduce ? { duration: 0 } : { type: 'spring', stiffness: 380, damping: 32 }
                       }
-                      className="absolute inset-0 -z-10 rounded-full bg-accent"
+                      className="absolute inset-0 z-0 rounded-full bg-accent"
                     />
                   )}
-                  {category}
+                  <span className="relative z-10">{category}</span>
                 </button>
               )
             })}
           </div>
         </div>
 
-        <motion.div
-          layout={!reduce}
-          className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3"
-        >
+        <motion.div layout={!reduce} className="mt-12 grid gap-5 md:grid-cols-2">
           <AnimatePresence mode="popLayout">
             {visible.map((project, index) => (
               <motion.article
@@ -84,13 +81,27 @@ const Projects = () => {
                   ease: [0.16, 1, 0.3, 1],
                 }}
                 whileHover={reduce ? undefined : { y: -4 }}
-                className={`surface-card flex flex-col p-6 ${
+                className={`surface-card flex flex-col overflow-hidden ${
+                  project.image ? 'md:col-span-2 lg:grid lg:grid-cols-12' : ''
+                } ${
                   project.featured
                     ? 'border-accent-line bg-gradient-to-br from-accent-wash to-surface-raised dark:to-surface-raised-dark'
                     : ''
                 }`}
               >
-                <div className="flex items-center justify-between gap-3">
+                {project.image && (
+                  <img
+                    src={project.image}
+                    alt={project.imageAlt}
+                    width="1536"
+                    height="1024"
+                    loading="lazy"
+                    className="aspect-[16/10] h-full w-full object-cover lg:col-span-5"
+                  />
+                )}
+
+                <div className={`flex flex-col p-6 ${project.image ? 'lg:col-span-7 lg:p-8' : ''}`}>
+                  <div className="flex items-center justify-between gap-3">
                   <span className="rounded-chip bg-surface px-2.5 py-1 font-mono text-[0.7rem] text-ink-muted dark:bg-surface-dark dark:text-ink-muted-dark">
                     {project.tag}
                   </span>
@@ -105,32 +116,33 @@ const Projects = () => {
                       <ArrowUpRight size={18} weight="bold" />
                     </a>
                   )}
-                </div>
+                  </div>
 
-                <h3 className="mt-4 text-lg font-semibold text-ink dark:text-ink-dark">
-                  {project.title}
-                </h3>
+                  <h3 className="mt-4 text-lg font-semibold text-ink dark:text-ink-dark">
+                    {project.title}
+                  </h3>
 
-                <dl className="mt-5 flex flex-col gap-4">
-                  {facets.map(({ key, label, Icon }) => (
-                    <div key={key} className="flex gap-3">
-                      <Icon
-                        size={16}
-                        weight="regular"
-                        className="mt-0.5 shrink-0 text-accent"
-                        aria-hidden="true"
-                      />
-                      <div>
-                        <dt className="text-[0.7rem] font-semibold uppercase tracking-[0.1em] text-ink dark:text-ink-dark">
-                          {label}
-                        </dt>
-                        <dd className="mt-1 text-sm leading-[1.7] text-ink-muted dark:text-ink-muted-dark">
-                          {project[key]}
-                        </dd>
+                  <dl className="mt-5 flex flex-col gap-4">
+                    {facets.map(({ key, label, Icon }) => (
+                      <div key={key} className="flex gap-3">
+                        <Icon
+                          size={16}
+                          weight="regular"
+                          className="mt-0.5 shrink-0 text-accent"
+                          aria-hidden="true"
+                        />
+                        <div>
+                          <dt className="text-[0.7rem] font-semibold uppercase tracking-[0.1em] text-ink dark:text-ink-dark">
+                            {label}
+                          </dt>
+                          <dd className="mt-1 text-sm leading-[1.7] text-ink-muted dark:text-ink-muted-dark">
+                            {project[key]}
+                          </dd>
+                        </div>
                       </div>
-                    </div>
-                  ))}
-                </dl>
+                    ))}
+                  </dl>
+                </div>
               </motion.article>
             ))}
           </AnimatePresence>
