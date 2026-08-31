@@ -27,7 +27,7 @@ export const about = {
   facts: [
     { label: '전공', value: '성결대학교 산업경영공학과' },
     { label: '교육', value: 'KT AIVLE School AI 트랙' },
-    { label: '수상', value: '데이터분석 경진대회 금상 (1위)' },
+    { label: '수상', value: '데이터분석 경진대회 대상 (1위)' },
   ],
 }
 
@@ -40,7 +40,7 @@ export const pipeline = [
     period: '2025.10 - 2025.11',
     metric: { value: '0.9956', label: 'F1-Score' },
     body: 'Autoencoder 기반 이상 탐지에 SHAP을 붙여 판정 근거까지 드러냈습니다. 배경 데이터 사전 캐싱으로 XAI 연산을 줄여 실시간 시연이 가능한 수준으로 만들었습니다.',
-    note: '데이터분석 경진대회 1위 금상. 기존 가이드 0.7956 대비 향상.',
+    note: '데이터분석 경진대회 1위 대상. 기존 가이드 0.7956 대비 향상.',
     image: '/battery-inspection.webp',
     imageAlt: '자동 검사 장비가 전기차 배터리 모듈을 검사하는 생산 라인',
     repo: 'https://github.com/kyoungsoon-kim/battery-anomaly-detection-xai',

@@ -57,7 +57,7 @@
 
 | 프로젝트 | 분야 | 핵심 성과 |
 |----------|------|-----------|
-| **Battery Anomaly Detection & XAI** | Autoencoder / SHAP | F1-Score 0.9956으로 경진대회 1위 금상을 수상했습니다. |
+| **Battery Anomaly Detection & XAI** | Autoencoder / SHAP | F1-Score 0.9956으로 경진대회 1위 대상을 수상했습니다. |
 | **Dynamic Supplier Selection** | DRL / Dual Decoder | 행동 공간을 K×Q에서 K+Q로 축소해 조달 총비용을 15.2% 절감합니다. |
 | **Deep Controlled Learning Inventory** | CBPI / Sequential Halving | 시뮬레이션 소요량을 10배 이상 줄이며 최적해 오차 0.01%를 재현합니다. |
 | **CVRP Attention RL** | DRL / PyTorch | Transformer Attention과 강화학습으로 대규모 차량 경로 탐색 시간을 단축합니다. |
