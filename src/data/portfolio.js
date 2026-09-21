@@ -12,7 +12,7 @@ export const profile = {
 
 // Hero right column. Real results, each traceable to a project below.
 export const headlineMetrics = [
-  { value: '0.9956', unit: 'F1', label: '배터리 이상탐지', context: '기존 가이드 0.7956' },
+  { value: '최우수상', unit: '', label: 'AIVLE 빅프로젝트', context: 'KT AIVLE 9기 · 2026-09 · 8인 팀 조장 겸 PM' },
   { value: '15.2', unit: '%', label: '조달 총비용 절감', context: '단일 최적 조달정책 대비' },
   { value: '0.01', unit: '%', label: '최적해 오차', context: '시뮬레이션 소요량 10배 감소' },
 ]
@@ -27,7 +27,7 @@ export const about = {
   facts: [
     { label: '전공', value: '성결대학교 산업경영공학과' },
     { label: '교육', value: 'KT AIVLE School AI 트랙' },
-    { label: '수상', value: '데이터분석 경진대회 대상 (1위)' },
+    { label: '수상', value: 'AIVLE 빅프로젝트 최우수상 · 데이터분석 경진대회 대상' },
   ],
 }
 
@@ -38,9 +38,9 @@ export const pipeline = [
     stage: 'Manufacturing',
     title: 'Battery Anomaly Detection & XAI',
     period: '2025.10 - 2025.11',
-    metric: { value: '0.9956', label: 'F1-Score' },
+    metric: { value: '208', label: '센서 채널' },
     body: 'Autoencoder 기반 이상 탐지에 SHAP을 붙여 판정 근거까지 드러냈습니다. 배경 데이터 사전 캐싱으로 XAI 연산을 줄여 실시간 시연이 가능한 수준으로 만들었습니다.',
-    note: '데이터분석 경진대회 1위 대상. 기존 가이드 0.7956 대비 향상.',
+    note: '데이터분석 경진대회 대상. 수상 이후 평가 프로토콜을 스스로 재검증해 한계를 문서로 남겼습니다.',
     image: '/battery-inspection.webp',
     imageAlt: '자동 검사 장비가 전기차 배터리 모듈을 검사하는 생산 라인',
     repo: 'https://github.com/kyoungsoon-kim/battery-anomaly-detection-xai',
@@ -101,6 +101,16 @@ export const projects = [
     approach: 'Transformer 3D 공간 인지 모델과 PPO로 순차 적재 의사결정을 학습했습니다.',
     impact: '공간 활용률을 끌어올리고 적재 알고리즘 실행 시간을 줄였습니다.',
     repo: 'https://github.com/kyoungsoon-kim/generalized-online-3d-bin-packing',
+  },
+  {
+    id: 'cellnex',
+    category: 'Vision & ML',
+    title: 'CELLNEX — 이차전지 셀 검사 플랫폼',
+    tag: 'YOLOv11-seg / Spring Boot / AWS',
+    problem: '결함 탐지만으로는 현장이 움직이지 않습니다. 판정 이후 어느 셀을 어떻게 처분할지가 남습니다.',
+    approach: 'CT·RGB 이미지 검사 모델과 리포트 생성 LLM을 붙이고, 판정을 원인 귀속과 처분 분기로 잇는 통합 관리 플랫폼을 설계했습니다. 8인 팀의 조장 겸 PM과 인프라 파트리더를 맡아 저장소 13개를 단일 기준 문서 체계로 통제했습니다.',
+    impact: 'KT AIVLE School 9기 빅프로젝트 최우수상을 받았습니다 (2026-09).',
+    featured: true,
   },
   {
     id: 'donut',
