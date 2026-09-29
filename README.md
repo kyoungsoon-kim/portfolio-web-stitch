@@ -47,7 +47,7 @@
 | **Hero** | 핵심 메시지와 대표 성과 3종(AIVLE 빅프로젝트 최우수상 · 조달 총비용 15.2% 절감 · 최적해 오차 0.01%)을 제시합니다. |
 | **About** | 물류 현장 경험에서 최적화·AI로 이어진 커리어 스토리를 담았습니다. |
 | **Pipeline** | 제조 → 조달 → 재고로 이어지는 End-to-End SCM AI 프로젝트 3편을 서사로 연결합니다. |
-| **Projects** | CELLNEX·CVRP·SCLSP·3D Bin Packing 등 7개 프로젝트를 카테고리별로 소개합니다. |
+| **Projects** | Battery XAI·CVRP·SCLSP·3D Bin Packing 등 7개 프로젝트를 카테고리별로 소개합니다. |
 | **Skills** | Deep Learning · Data & ML · Optimization · MLOps · AI Dev Tools 스택을 정리했습니다. |
 | **Contact** | 메일·GitHub 연결 지점을 제공합니다. |
 
@@ -57,12 +57,12 @@
 
 | 프로젝트 | 분야 | 핵심 성과 |
 |----------|------|-----------|
-| **CELLNEX — 이차전지 셀 검사 플랫폼** | YOLOv11-seg / Spring Boot / AWS | 8인 팀 조장 겸 PM으로 KT AIVLE 9기 빅프로젝트 최우수상을 받았습니다. |
-| **Battery Anomaly Detection & XAI** | Autoencoder / SHAP | 208개 센서 채널 이상탐지에 SHAP을 붙여 원인 센서까지 짚었고, 데이터분석 경진대회 대상을 수상했습니다. |
+| **CELLNEX — 이차전지 셀 검사 플랫폼** | YOLOv11-seg / Spring Boot / AWS | 판정을 재촬영·리포트·처분으로 잇는 플랫폼을 설계했습니다. 8인 팀 조장 겸 PM으로 KT AIVLE School 9기 빅프로젝트 최우수상을 받았습니다. |
+| **Battery Anomaly Detection & XAI** | Autoencoder / SHAP | 데이터분석 경진대회 대상. 수상 이후 평가 프로토콜을 재검증해 한계를 문서화했습니다. |
 | **Dynamic Supplier Selection** | DRL / Dual Decoder | 행동 공간을 K×Q에서 K+Q로 축소해 조달 총비용을 15.2% 절감합니다. |
 | **Deep Controlled Learning Inventory** | CBPI / Sequential Halving | 시뮬레이션 소요량을 10배 이상 줄이며 최적해 오차 0.01%를 재현합니다. |
 | **CVRP Attention RL** | DRL / PyTorch | Transformer Attention과 강화학습으로 대규모 차량 경로 탐색 시간을 단축합니다. |
-| **Document AI: Donut** | Document AI / HuggingFace | OCR 없이 이미지→JSON 추출로 입력 시간을 90% 이상 단축합니다. |
+| **Document AI: Donut** | Document AI / HuggingFace | OCR 없이 거래명세서 이미지에서 JSON을 직접 추출하는 파이프라인을 GitHub·Hugging Face에 공개했습니다. 처음 보는 양식에서는 과적합 한계를 확인했습니다. |
 | **Jobshop AnyLogic Digital Twin** | AnyLogic / Digital Twin | AGV 최적 대수 29대를 산정해 설비 투자 비용을 35% 절감합니다. |
 
 ---
@@ -107,7 +107,7 @@ npm run preview
 
 ```
 portfolio-web/
-├── public/                # 정적 자산 (favicon, CV PDF)
+├── public/                # 정적 자산 (favicon, 이미지)
 ├── src/
 │   ├── components/        # Navbar, Hero, About, Pipeline, Projects, Skills, Contact
 │   ├── data/portfolio.js  # 모든 문구·수치·링크의 단일 출처

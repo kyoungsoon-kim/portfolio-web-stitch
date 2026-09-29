@@ -67,7 +67,7 @@ const Pipeline = () => {
                     rel="noopener noreferrer"
                     className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-ink transition-colors hover:text-accent dark:text-ink-dark"
                   >
-                    Repository
+                    {entry.repoLabel ?? 'Repository'}
                     <ArrowUpRight size={14} weight="bold" />
                   </a>
                 )}
